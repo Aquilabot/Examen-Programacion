@@ -11,7 +11,7 @@
 	"settings": {},
 	
 	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": ["vscjava.vscode-java-pack", "johnpapa.angular-essentials", "Pivotal.vscode-boot-dev-pack", "cweijan.vscode-mysql-client2"],
+	"extensions": ["vscjava.vscode-java-pack", "redhat.fabric8-analytics", "johnpapa.angular-essentials", "Pivotal.vscode-boot-dev-pack", "cweijan.vscode-mysql-client2"],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
