@@ -14,12 +14,12 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.example.demo.models.estudianteModel;
- 
+
 public class excel {
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
     private ArrayList<estudianteModel> listEstudiante;
-     
+
     public excel(ArrayList<estudianteModel> listPersonas) {
         this.listEstudiante = listPersonas;
         workbook = new XSSFWorkbook();

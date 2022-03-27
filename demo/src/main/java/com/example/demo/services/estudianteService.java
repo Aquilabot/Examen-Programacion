@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 import com.example.demo.models.estudianteModel;
+import com.example.demo.util.agecalculation;
 import com.example.demo.repositories.estudianteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,8 @@ public class estudianteService {
     public estudianteModel saveStudent(estudianteModel estudiante){
         // asignamos el id en el background
         // este metodo tambien funciona como EDIT si especificamos el id explicitamente
+        agecalculation calc = new agecalculation();
+        estudiante.setAge(calc.agecalculation(estudiante.getBirthdate()));
         return EstudianteRepository.save(estudiante);
     }
 
@@ -28,11 +31,11 @@ public class estudianteService {
     }
 
     public ArrayList<estudianteModel> getByDocOrDocType(String documentNumber, String documentType){
-        return EstudianteRepository.findByDocumentNumbeOrDocumentType(documentNumber, documentType);
+        return EstudianteRepository.findByDocumentNumberOrDocumentType(documentNumber, documentType);
     }
 
     public ArrayList<estudianteModel> getByDocAndDocType(String documentNumber, String documentType){
-        return EstudianteRepository.findByDocumentNumbeAndDocumentType(documentNumber, documentType);
+        return EstudianteRepository.findByDocumentNumberAndDocumentType(documentNumber, documentType);
     }
 
     public ArrayList<estudianteModel> getByLastnamePOrLastnameMOrName(String lastnameP, String lastnameM, String name){
