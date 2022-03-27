@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="row">
+      <div class="col">
+          <h3>Editar estudiante</h3>
+          <form [formGroup]="form" enctype="multipart/form-data" class="row g-3">
+              <div class="form-group col-6">
+                  <label>Tipo de Documento</label>
+                  <select  class="form-select" formControlName="documentType">
+                    <option>DNI</option>
+                    <option>Carnet de Extranjeria</option>
+                  </select>
+                </div>
+
+              <div class="form-group col-4">
+                  <label for="documentNumber">Numero de documento</label>
+                  <input type="text" class="form-control"  formControlName="documentNumber">
+                </div>
+
+              <div class="form-group col-4">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" formControlName="name" >
+              </div>
+
+              <div class="form-group col-4">
+                  <label for="lastName">Apellido Paterno</label>
+                  <input type="text" class="form-control" formControlName="lastnameP" >
+              </div>
+
+              <div class="form-group col-4">
+                <label for="lastName">Apellido Materno</label>
+                <input type="text" class="form-control" formControlName="lastnameM" >
+            </div>
+
+              <div class="form-group col-4">
+                  <label for="birthdayDate">Fecha de Nacimiento</label>
+                  <input type="date" class="form-control" formControlName="birthdate">
+              </div>
+
+              <div class="form-group col-4">
+                  <label for="address">Departamento</label>
+                  <input type="text" class="form-control" formControlName="departamento">
+              </div>
+
+              <div class="form-group col-4">
+                  <label for="address">Provincia</label>
+                  <input type="text" class="form-control" formControlName="provincia">
+              </div>
+
+              <div class="form-group col-4">
+                  <label for="address">Distrito</label>
+                  <input type="text"  class="form-control" formControlName="distrito">
+              </div>
+
+              <div class="form-group col-4">
+                  <label for="photo">Foto</label>
+                  <input enctype="multipart/form-data" type="file" accept=".png,.jpg" class="form-control" formControlName="photo">
+              </div>
+
+              <div class="form-group col-4">
+                  <label>Genero</label>
+                  <select  class="form-select" formControlName="gender">
+                    <option>Masculino</option>
+                    <option>Femenino</option>
+                  </select>
+                </div>
+
+              <div class="form-group col-4">
+                  <label for="age">Edad</label>
+                  <input type="number" class="form-control" formControlName="age">
+              </div>
+
+              <div class="form-group col-12 text-center">
+                <button class="d-flex justify-content-center" type="submit" class="btn btn-primary" (click)="editStudent()">Guardar</button>
+              </div>
+            </form>
+      </div>
+  </div>
+</div>

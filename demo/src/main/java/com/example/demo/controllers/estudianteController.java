@@ -2,10 +2,17 @@ package com.example.demo.controllers;
 
 import com.example.demo.models.estudianteModel;
 import com.example.demo.services.estudianteService;
+import com.example.demo.util.excel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
 
 @RestController
@@ -68,5 +75,22 @@ public class estudianteController {
         }else{
             return "Estudiante con id "+ id +" no ha podido ser eliminado";
         }
+    }
+
+    @GetMapping(path={"/export/excel"})
+    public void exportToExcel(HttpServletResponse response) throws IOException {
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+             
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=users_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+             
+        ArrayList<estudianteModel> personas = EstudianteService.getStudents();
+             
+        excel excelExport = new excel(personas);
+             
+        excelExport.export(response);
     }
 }

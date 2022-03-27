@@ -20,14 +20,14 @@ public class excel {
     private XSSFSheet sheet;
     private ArrayList<estudianteModel> listEstudiante;
 
-    public excel(ArrayList<estudianteModel> listPersonas) {
-        this.listEstudiante = listPersonas;
+    public excel(ArrayList<estudianteModel> listEstudiante) {
+        this.listEstudiante = listEstudiante;
         workbook = new XSSFWorkbook();
     }
  
  
     private void writeHeaderLine() {
-        sheet = workbook.createSheet("Personas");
+        sheet = workbook.createSheet("Estudiantes");
          
         Row row = sheet.createRow(0);
          
