@@ -1,6 +1,13 @@
 package com.example.demo.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table (name = "student")
 public class estudianteModel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false)
     private Long id;
     private String documentType;
     private String documentNumber;
