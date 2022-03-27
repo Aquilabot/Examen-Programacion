@@ -1,7 +1,7 @@
 package com.example.demo.util;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
  
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
@@ -18,9 +18,9 @@ import com.example.demo.models.estudianteModel;
 public class excel {
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
-    private List<estudianteModel> listEstudiante;
+    private ArrayList<estudianteModel> listEstudiante;
      
-    public excel(List<estudianteModel> listPersonas) {
+    public excel(ArrayList<estudianteModel> listPersonas) {
         this.listEstudiante = listPersonas;
         workbook = new XSSFWorkbook();
     }
@@ -37,18 +37,19 @@ public class excel {
         font.setFontHeight(16);
         style.setFont(font);
          
-        createCell(row, 0, "Tipo Doc.", style);      
-        createCell(row, 1, "Numero Doc.", style);       
+        createCell(row, 0, "Tipo de documento", style);
+        createCell(row, 1, "Numero de documento", style);
         createCell(row, 2, "Nombres", style);    
         createCell(row, 3, "Apellido Paterno", style);
         createCell(row, 4, "Apellido Materno", style);
-        createCell(row, 5, "Fecha de Nacimiento", style);
         createCell(row, 6, "Genero", style);
+        createCell(row, 5, "Fecha de Nacimiento", style);
         createCell(row, 7, "Edad", style);
-        createCell(row, 8, "Departamento", style);
-        createCell(row, 9, "Provincia", style);
-        createCell(row, 10, "Distrito", style);
-         
+        createCell(row, 8, "Ubigeo", style);
+        createCell(row, 9, "Direccion", style);
+        createCell(row, 10, "Referencia", style);
+        createCell(row , 11, "Estado Civil", style);
+        createCell(row, 12, "Foto link", style);
     }
      
     private void createCell(Row row, int columnCount, Object value, CellStyle style) {
@@ -81,13 +82,15 @@ public class excel {
             createCell(row, columnCount++, estudiante.getName(), style);
             createCell(row, columnCount++, estudiante.getLastnameP(), style);
             createCell(row, columnCount++, estudiante.getLastnameM(), style);
-            createCell(row, columnCount++, estudiante.getBirthdate(), style);
             createCell(row, columnCount++, estudiante.getGender(), style);
+            createCell(row, columnCount++, estudiante.getBirthdate(), style);
             createCell(row, columnCount++, estudiante.getAge(), style);
-            createCell(row, columnCount++, estudiante.getDepartamento(), style);
-            createCell(row, columnCount++, estudiante.getProvincia(), style);
-            createCell(row, columnCount++, estudiante.getDistrito(), style);
-             
+            createCell(row, columnCount++, estudiante.getDepartamento() + " " +
+                    estudiante.getProvincia() + " " + estudiante.getDistrito(), style);
+            createCell(row, columnCount, estudiante.getLocation(), style);
+            createCell(row, columnCount, estudiante.getReferenceLocation(), style);
+            createCell(row, columnCount, estudiante.getCivilStatus(), style);
+            createCell(row, columnCount, estudiante.getPhoto(), style);
         }
     }
      
