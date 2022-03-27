@@ -8,13 +8,10 @@ import java.util.ArrayList;
 
 @Repository
 public interface estudianteRepository extends CrudRepository<estudianteModel, Long> {
-    ArrayList<estudianteModel>findAll();
-    estudianteModel save(estudianteModel EstudianteModel);
-    void delete(estudianteModel EstudianteModel);
     
     //Tipo y Numero de documento
-    public abstract ArrayList<estudianteModel> findByDocumentNumbeOrDocumentType(String documentNumber, String documentType);
-    public abstract ArrayList<estudianteModel> findByDocumentNumbeAndDocumentType(String documentNumber, String documentType);
+    public abstract ArrayList<estudianteModel> findByDocumentNumberOrDocumentType(String documentNumber, String documentType);
+    public abstract ArrayList<estudianteModel> findByDocumentNumberAndDocumentType(String documentNumber, String documentType);
     
     //Apellidos y Nombres
     public abstract ArrayList<estudianteModel> findByLastnamePOrLastnameMOrName(String lastnameP, String lastnameM, String name);
