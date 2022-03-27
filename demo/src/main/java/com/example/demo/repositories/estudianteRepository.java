@@ -11,8 +11,7 @@ public interface estudianteRepository extends CrudRepository<estudianteModel, Lo
     ArrayList<estudianteModel>findAll();
     estudianteModel save(estudianteModel EstudianteModel);
     void delete(estudianteModel EstudianteModel);
-
-    //abstract query with multiple parameters
+    
     //Tipo y Numero de documento
     public abstract ArrayList<estudianteModel> findByDocumentNumbeOrDocumentType(String documentNumber, String documentType);
     public abstract ArrayList<estudianteModel> findByDocumentNumbeAndDocumentType(String documentNumber, String documentType);
