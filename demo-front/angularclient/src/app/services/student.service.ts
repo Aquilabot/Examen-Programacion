@@ -23,7 +23,7 @@ export class StudentService {
   }
 
   updateStudent(student: Student) {
-    return this.httpClient.post<Student>(this.AUTH_SERVER + "/estudiante" + student.id, student);
+    return this.httpClient.post(this.AUTH_SERVER + "/estudiante", student);
   }
 
   deleteStudent(id: number) {

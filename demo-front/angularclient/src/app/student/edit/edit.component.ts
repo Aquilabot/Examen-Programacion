@@ -27,7 +27,8 @@ export class EditComponent implements OnInit {
       referenceLocation: ["", Validators.required],
       civilStatus: ["", Validators.required],
       photo: ["", Validators.required],
-      gender: ["", Validators.required]
+      gender: ["", Validators.required],
+      age: ["", Validators.required]
     });
   }
 
@@ -36,29 +37,21 @@ export class EditComponent implements OnInit {
     this.loadStudent()
   }
 
-  loadStudent(){
-    let id=localStorage.getItem("id")|| '{}';
-    this.service.getStudentId(id).subscribe(data=>{
-      this.student=data,
-      console.log(this.student.id)
-      this.form.setValue({
-        documentNumber:this.student.documentNumber,
-        documentType:this.student.documentType,
-        name:this.student.name,
-        lastnameP:this.student.lastnameP,
-        lastnameM:this.student.lastnameM,
-        birthdate:this.student.birthdate,
-        age:this.student.age,
-        location:this.student.location,
-        departamento:this.student.departamento,
-        provincia:this.student.provincia,
-        distrito:this.student.distrito,
-        referenceLocation:this.student.referenceLocation,
-        civilStatus:this.student.civilStatus,
-        photo:this.student.photo,
-        gender:this.student.gender
-      });
-    })
+  loadStudent(){ //load student using shared data
+    this.student=JSON.parse(localStorage.getItem("student") || '{}'); //parsed
+    this.form.controls['documentNumber'].setValue(this.student.documentNumber);
+    this.form.controls['documentType'].setValue(this.student.documentType);
+    this.form.controls['lastnameP'].setValue(this.student.lastnameP);
+    this.form.controls['lastnameM'].setValue(this.student.lastnameM);
+    this.form.controls['name'].setValue(this.student.name);
+    this.form.controls['birthdate'].setValue(this.student.birthdate);
+    this.form.controls['location'].setValue(this.student.location);
+    this.form.controls['departamento'].setValue(this.student.departamento);
+    this.form.controls['provincia'].setValue(this.student.provincia);
+    this.form.controls['distrito'].setValue(this.student.distrito);
+    this.form.controls['referenceLocation'].setValue(this.student.referenceLocation);
+    this.form.controls['civilStatus'].setValue(this.student.civilStatus);
+    this.form.controls['photo'].setValue(this.student.photo);
   }
 
   editStudent(){

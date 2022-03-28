@@ -1,1 +1,70 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  background-color: #ffffff;
+}
+
+a {
+  color: #0088cc;
+}
+
+a.absent {
+  color: #000000;
+}
+
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative;
+}
+
+h1 tt, h1 code {
+  font-size: inherit;
+}
+
+h2 tt, h2 code {
+  font-size: inherit;
+}
+
+h3 tt, h3 code {
+  font-size: inherit;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+h4 tt, h4 code {
+  font-size: inherit;
+}
+
+h5 {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+h5 tt, h5 code {
+  font-size: inherit;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
