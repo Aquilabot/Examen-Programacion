@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Student } from 'src/app/model/student';
 import { StudentService } from 'src/app/services/student.service';
+import { Departamento, Provincia, Distrito } from "../../model/ubigeo";
 
 @Component({
   selector: 'app-edit',
@@ -12,6 +13,12 @@ import { StudentService } from 'src/app/services/student.service';
 export class EditComponent implements OnInit {
   student: Student = new Student;
   form: FormGroup;
+  public selectedDepartamento: Departamento = { id: 0, name: "Seleccione un departamento" };
+  public selectedProvincia: Provincia = { id: 0, departamentoId: 0, name: "Seleccione una provincia" };
+  public selectedDistrito: Distrito = { id: 0, provinciaId: 0, name: "Seleccione un distrito" };
+  public departamentos: Departamento[] = [];
+  public provincias: Provincia[] = [];
+  public distritos: Distrito[] = [];
   constructor(private fb: FormBuilder,private service:StudentService,private router: Router){
     this.form = this.fb.group({
       documentNumber: ["", Validators.required],
@@ -35,6 +42,14 @@ export class EditComponent implements OnInit {
   //carga datos de persona
   ngOnInit(): void {
     this.loadStudent()
+    this.departamentos = this.service.getDepartamentos();
+  }
+  onSelectedDepartamento(id:any):void{
+    this.provincias = this.service.getProvincias().filter(provincia => provincia.departamentoId == id.target.value);
+  }
+
+  onSelectedProvincia(id:any):void{
+    this.distritos = this.service.getDistritos().filter(distrito => distrito.provinciaId == id.target.value);
   }
 
   loadStudent(){ //load student using shared data

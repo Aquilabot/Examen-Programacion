@@ -37,28 +37,40 @@
               </div>
 
               <div class="form-group col-4">
-                <label for="address">Direccion</label>
+                <label for="location">Direccion</label>
                 <input type="text" class="form-control" formControlName="location">
               </div>
 
               <div class="form-group col-4">
-                <label for="address">Referencia</label>
+                <label for="referenceLocation">Referencia</label>
                 <input type="text" class="form-control" formControlName="referenceLocation">
               </div>
 
               <div class="form-group col-4">
-                  <label for="address">Departamento</label>
-                  <input type="text" class="form-control" formControlName="departamento">
+                <label for="departamento">Departamento</label>
+                <select [(ngModel)]="selectedDepartamento.id" class="form-select" formControlName="departamento" (change)="onSelectedDepartamento($event)">
+                  <option *ngFor="let departamento of departamentos" [value]="departamento.id">
+                    {{departamento.name}}
+                  </option>
+                </select>
               </div>
 
               <div class="form-group col-4">
-                  <label for="address">Provincia</label>
-                  <input type="text" class="form-control" formControlName="provincia">
+                <label for="provincia">Provincia</label>
+                <select [(ngModel)]="selectedProvincia.id" class="form-select" formControlName="provincia" (change)="onSelectedProvincia($event)">
+                  <option *ngFor="let provincia of provincias" [value]="provincia.id">
+                    {{provincia.name}}
+                  </option>
+                </select>
               </div>
 
               <div class="form-group col-4">
-                  <label for="address">Distrito</label>
-                  <input type="text"  class="form-control" formControlName="distrito">
+                <label for="distrito">Distrito</label>
+                <select [(ngModel)]="selectedDistrito.id" class="form-select" formControlName="distrito">
+                  <option *ngFor="let distrito of distritos" [value]="distrito.id">
+                    {{distrito.name}}
+                  </option>
+                </select>
               </div>
 
               <div class="form-group col-4">
