@@ -25,7 +25,12 @@ a.anchor {
   bottom: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 20px 0 10px;
   padding: 0;
   font-weight: bold;
@@ -34,15 +39,18 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
 }
 
-h1 tt, h1 code {
+h1 tt,
+h1 code {
   font-size: inherit;
 }
 
-h2 tt, h2 code {
+h2 tt,
+h2 code {
   font-size: inherit;
 }
 
-h3 tt, h3 code {
+h3 tt,
+h3 code {
   font-size: inherit;
 }
 
@@ -51,7 +59,8 @@ h4 {
   font-weight: normal;
 }
 
-h4 tt, h4 code {
+h4 tt,
+h4 code {
   font-size: inherit;
 }
 
@@ -60,7 +69,8 @@ h5 {
   font-weight: normal;
 }
 
-h5 tt, h5 code {
+h5 tt,
+h5 code {
   font-size: inherit;
 }
 

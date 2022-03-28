@@ -48,17 +48,29 @@
 
         <div class="form-group col-4">
           <label for="departamento">Departamento</label>
-          <input type="text" class="form-control" formControlName="departamento">
+          <select [(ngModel)]="selectedDepartamento.id" class="form-select" formControlName="departamento" (change)="onSelectedDepartamento($event)">
+            <option *ngFor="let departamento of departamentos" [value]="departamento.id">
+              {{departamento.name}}
+            </option>
+          </select>
         </div>
 
         <div class="form-group col-4">
           <label for="provincia">Provincia</label>
-          <input type="text" class="form-control" formControlName="provincia">
+          <select [(ngModel)]="selectedProvincia.id" class="form-select" formControlName="provincia" (change)="onSelectedProvincia($event)">
+            <option *ngFor="let provincia of provincias" [value]="provincia.id">
+              {{provincia.name}}
+            </option>
+          </select>
         </div>
 
         <div class="form-group col-4">
           <label for="distrito">Distrito</label>
-          <input type="text" class="form-control" formControlName="distrito">
+          <select [(ngModel)]="selectedDistrito.id" class="form-select" formControlName="distrito">
+            <option *ngFor="let distrito of distritos" [value]="distrito.id">
+              {{distrito.name}}
+            </option>
+          </select>
         </div>
 
         <div class="form-group col-4">

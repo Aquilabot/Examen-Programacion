@@ -1,113 +1,118 @@
 <div class="container">
   <div class="card border-0">
-      <div class="card-header">
-          <div class="container">
-              <div class="row">
-                  <h3>Instituto Tecnológico de Lima</h3>
-                  <!-- TODO: ordenar esto y usar los querys -->
-                  <div class="d-flex flex-row-reverse bd-highlight">
-                      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                      aria-expanded="false" aria-controls="collapseExample">Filtrar</button>
-                      <button class="btn btn-primary" (click)="generarReporte()">Generar Reporte</button>
-                      <button class="btn btn-primary" routerLink="/add">Agregar</button>
-                  </div>
-                      <div class="collapse" id="collapseExample">
-                          <div class="card card-body ">
-                                  <div class="container">
-                                      <div class="row">
-                                          <div class="col-3">
-                                              <label for="documentNumber">Edad</label>
-                                              <!--<input type="text" class="form-control" [(ngModel)]='edad'>-->
-                                          </div>
-                                          <div class="col-4">
-                                              genero
-                                              <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                                   <!--<input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" value="Mujer" [(ngModel)]="gender">-->
-                                                  <label class="btn btn-outline-primary" for="btnradio1">Femenino</label>
-
-                                                   <!--<input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="Hombre" [(ngModel)]="gender">-->
-                                                  <label class="btn btn-outline-primary" for="btnradio2">Masculino</label>
-
-                                              </div>
-                                          </div>
-                                          <div class="col-4">
-                                              <label for="documentId">Distrito</label>
-                                              <input type="text" class="form-control"  [(ngModel)]='distrito'>
-                                          </div>
-                                          <div class="col-1">
-                                              <button class="btn btn-primary" type="button" (click)="filtrarDoc()">Buscar por documento</button>
-                                          </div>
-                                          <div class="col-1">
-                                              <button class="btn btn-primary" type="button" (click)="filtrarName()">Buscar por nombre</button>
-                                          </div>
-                                          <div class="col-1">
-                                              <button class="btn btn-primary" type="button" (click)="filtrarUbigeo()">Buscar por ubigeo</button>
-                                          </div>
-
-                                      </div>
-                                  </div>
-                          </div>
-                      </div>
-              </div>
+    <div class="card-header">
+      <div class="container">
+        <div class="row">
+          <h3>Instituto Tecnológico de Lima</h3>
+          <!-- TODO: ordenar esto y usar los querys -->
+          <div class="d-flex flex-row-reverse bd-highlight">
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
+              aria-expanded="false" aria-controls="collapseExample">Filtrar</button>
+            <button class="btn btn-primary" (click)="generarReporte()">Generar Reporte</button>
+            <button class="btn btn-primary" routerLink="/add">Agregar</button>
           </div>
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body ">
+              <div class="container">
+                <div class="row">
+                  <div class="col-3">
+                    <label for="documentNumber">Apellido Paterno</label>
+                    <input type="text" class="form-control" [(ngModel)]='lastnameP'>
+                  </div>
+                  <div class="col-3">
+                    <label for="documentNumber">Apellido Materno</label>
+                    <input type="text" class="form-control" [(ngModel)]='lastnameM'>
+                  </div>
+                  <div class="col-4">
+                    Tipo de Documento
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
+                        value="DNI" [(ngModel)]="documentType">
+                      <label class="btn btn-outline-primary" for="btnradio1">DNI</label>
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off"
+                        value="Carnet de Extranjeria" [(ngModel)]="documentType">
+                      <label class="btn btn-outline-primary" for="btnradio2">Carnet de Extranjeria</label>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <label for="documentNumber">Numero de Documento</label>
+                    <input type="text" class="form-control" [(ngModel)]='documentNumber'>
+                  </div>
+                  <div class="col-2">
+                    <button class="btn btn-primary" type="button" (click)="filtrarName()">Buscar por nombre</button>
+                  </div>
+                  <div class="col-2">
+                    <button class="btn btn-primary" type="button" (click)="filtrarDoc()">Buscar por documento</button>
+                  </div>
+                  <div class="col-2">
+                    <button class="btn btn-primary" type="button" (click)="filtrarUbigeo()">Buscar por ubigeo</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card-body">
-          <table class="table tabler-hover">
-              <thead>
-                  <tr class="text-center">
-                      <th>TIPO DOCUMENTO</th>
-                      <th>NUMERO DOCUMENTO</th>
-                      <th>NOMBRES</th>
-                      <th>APELLIDO PATERNO</th>
-                      <th>APELLIDO MATERNO</th>
-                      <th>FECHA DE NACIMIENTO</th>
-                      <th>GENERO</th>
-                      <th>EDAD</th>
-                      <th>UBIGEO</th>
-                      <th>ESTADO CIVIL</th>
-                      <th>FOTO</th>
-                      <th>ACCIONES</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr *ngFor="let student of students" class="text-center">
-                      <td>{{student.documentType}}</td>
-                      <td>{{student.documentNumber}}</td>
-                      <td>{{student.name}}</td>
-                      <td>{{student.lastnameP}}</td>
-                      <td>{{student.lastnameM}}</td>
-                      <td>{{student.birthdate}}</td>
-                      <td>{{student.gender}}</td>
-                      <td>{{student.age}}</td>
-                      <td>{{student.departamento}},{{student.provincia}},{{student.distrito}}</td>
-                      <td>{{student.civilStatus}}</td>
-                      <td>{{student.photo}}</td>
-                      <td>
-                          <button class="btn btn-primary" (click)="goToEdit(student)">Editar</button>
-                          <button class="btn btn-danger" style="margin-left: 10px;"
-                          data-bs-toggle="modal" data-bs-target="#staticBackdrop">Delete</button>
-                          <!-- Modal -->
-                              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                  <div class="modal-dialog">
-                                  <div class="modal-content">
-                                      <div class="modal-header">
-                                      <h5 class="modal-title" id="staticBackdropLabel">Confirmacion</h5>
-                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                      </div>
-                                      <div class="modal-body">
-                                      ¿Esta seguro de eliminar a este estudiante?
-                                      </div>
-                                      <div class="modal-footer">
-                                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
-                                      <button type="button" class="btn btn-secondary" (click)="delete(student)" data-bs-dismiss="modal">Si</button>
-                                      </div>
-                                  </div>
-                                  </div>
-                              </div>
-                      </td>
-                  </tr>
-              </tbody>
-          </table>
-      </div>
+    </div>
+    <div class="card-body">
+      <table class="table tabler-hover">
+        <thead>
+          <tr class="text-center">
+            <th>TIPO DOCUMENTO</th>
+            <th>NUMERO DOCUMENTO</th>
+            <th>NOMBRES</th>
+            <th>APELLIDO PATERNO</th>
+            <th>APELLIDO MATERNO</th>
+            <th>FECHA DE NACIMIENTO</th>
+            <th>GENERO</th>
+            <th>EDAD</th>
+            <th>UBIGEO</th>
+            <th>ESTADO CIVIL</th>
+            <th>FOTO</th>
+            <th>ACCIONES</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of students" class="text-center">
+            <td>{{student.documentType}}</td>
+            <td>{{student.documentNumber}}</td>
+            <td>{{student.name}}</td>
+            <td>{{student.lastnameP}}</td>
+            <td>{{student.lastnameM}}</td>
+            <td>{{student.birthdate}}</td>
+            <td>{{student.gender}}</td>
+            <td>{{student.age}}</td>
+            <td>{{student.departamento}},{{student.provincia}},{{student.distrito}}</td>
+            <td>{{student.civilStatus}}</td>
+            <td>{{student.photo}}</td>
+            <td>
+              <button class="btn btn-primary" (click)="goToEdit(student)">Editar</button>
+              <button class="btn btn-danger" style="margin-left: 10px;" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop">Delete</button>
+              <!-- Modal -->
+              <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="staticBackdropLabel">Confirmacion</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      ¿Esta seguro de eliminar a este estudiante?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+                      <button type="button" class="btn btn-secondary" (click)="delete(student)"
+                        data-bs-dismiss="modal">Si</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
