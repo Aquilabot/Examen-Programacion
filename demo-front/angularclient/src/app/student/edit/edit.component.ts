@@ -14,17 +14,20 @@ export class EditComponent implements OnInit {
   form: FormGroup;
   constructor(private fb: FormBuilder,private service:StudentService,private router: Router){
     this.form = this.fb.group({
-      documentType:['',Validators.required],
-      documentId: ['', Validators.required],
-      name:['',Validators.required],
-      lastName:['',Validators.required],
-      birthdayDate: ['', Validators.required],
-      departamento:['',Validators.required],
-      provincia:['',Validators.required],
-      distrito:['',Validators.required],
-      photo:['',Validators.required],
-      gender:['',Validators.required],
-      age:['',Validators.required]
+      documentNumber: ["", Validators.required],
+      documentType: ["", Validators.required],
+      lastnameP: ["", Validators.required],
+      lastnameM: ["", Validators.required],
+      name: ["", Validators.required],
+      birthdate: ["", Validators.required],
+      location: ["", Validators.required],
+      departamento: ["", Validators.required],
+      provincia: ["", Validators.required],
+      distrito: ["", Validators.required],
+      referenceLocation: ["", Validators.required],
+      civilStatus: ["", Validators.required],
+      photo: ["", Validators.required],
+      gender: ["", Validators.required]
     });
   }
 
@@ -37,13 +40,13 @@ export class EditComponent implements OnInit {
     let id=localStorage.getItem("id")|| '{}';
     this.service.getStudentId(id).subscribe(data=>{
       this.student=data,
-      console.log(this.student.studentId)
+      console.log(this.student.id)
       this.form.setValue({
         documentNumber:this.student.documentNumber,
         documentType:this.student.documentType,
         name:this.student.name,
-        lastNameP:this.student.lastNameP,
-        lastNameM:this.student.lastNameM,
+        lastnameP:this.student.lastnameP,
+        lastnameM:this.student.lastnameM,
         birthdate:this.student.birthdate,
         age:this.student.age,
         location:this.student.location,
@@ -52,18 +55,19 @@ export class EditComponent implements OnInit {
         distrito:this.student.distrito,
         referenceLocation:this.student.referenceLocation,
         civilStatus:this.student.civilStatus,
-        photo:this.student.photo
+        photo:this.student.photo,
+        gender:this.student.gender
       });
     })
   }
 
   editStudent(){
     this.student=this.form.value
-    this.student.studentId=localStorage.getItem("id") || '{}';
-    console.log(this.student.studentId)
+    this.student.id=+(localStorage.getItem("id") || '{}'); //parsed
+    console.log(this.student.id)
     this.service.updateStudent(this.student).subscribe(res=>{
       console.log("Estudiante editado exitosamente!")
-      this.router.navigateByUrl('/list');
+      this.router.navigateByUrl('/estudiante');
     })
   }
 

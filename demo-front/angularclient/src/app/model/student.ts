@@ -1,12 +1,12 @@
 export class Student {
-  studentId: String="";
+  id: number=0;
   documentNumber: String="";
   documentType: String="";
-  lastNameP: String="";
-  lastNameM: String="";
+  lastnameP: String="";
+  lastnameM: String="";
   name: String="";
-  gender: String="";
   birthdate: String="";
+  gender: String="";
   age: number=0;
   location: String="";
   departamento: String="";

@@ -34,12 +34,12 @@ export class ListComponent implements OnInit {
   }
 
   goToEdit(student:Student){
-    localStorage.setItem("id",student.studentId.toString())
-    this.router.navigate(["editar"])
+    localStorage.setItem("id",student.id.toString())
+    this.router.navigate(["edit"])
   }
 
   delete(student:Student){
-    this.service.deleteStudent(student.studentId).subscribe(data=>{
+    this.service.deleteStudent(student.id).subscribe(data=>{
       this.getStudents();
     })
   }
@@ -71,8 +71,8 @@ export class ListComponent implements OnInit {
   filtrarName(){
     let student = new Student()
     student.name=this.name
-    student.lastNameP=this.lastnameP
-    student.lastNameM=this.lastnameM
+    student.lastnameP=this.lastnameP
+    student.lastnameM=this.lastnameM
     console.log(student);
     this.service.getStudentByNames(this.name,this.lastnameP,this.lastnameM).subscribe(data=>{
       console.log(data)

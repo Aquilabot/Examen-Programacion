@@ -82,8 +82,8 @@ public class excel {
             createCell(row, columnCount++, estudiante.getName(), style);
             createCell(row, columnCount++, estudiante.getLastnameP(), style);
             createCell(row, columnCount++, estudiante.getLastnameM(), style);
-            createCell(row, columnCount++, estudiante.getGender(), style);
             createCell(row, columnCount++, estudiante.getBirthdate(), style);
+            createCell(row, columnCount++, estudiante.getGender(), style);
             createCell(row, columnCount++, estudiante.getAge(), style);
             createCell(row, columnCount++, estudiante.getDepartamento() + " " +
                     estudiante.getProvincia() + " " + estudiante.getDistrito(), style);

@@ -17,18 +17,18 @@ export class AddComponent implements OnInit {
     this.form = this.formBuilder.group({
       documentNumber: ["", Validators.required],
       documentType: ["", Validators.required],
-      lastNameP: ["", Validators.required],
-      lastNameM: ["", Validators.required],
+      lastnameP: ["", Validators.required],
+      lastnameM: ["", Validators.required],
       name: ["", Validators.required],
       birthdate: ["", Validators.required],
-      age: ["", Validators.required],
       location: ["", Validators.required],
       departamento: ["", Validators.required],
       provincia: ["", Validators.required],
       distrito: ["", Validators.required],
       referenceLocation: ["", Validators.required],
       civilStatus: ["", Validators.required],
-      photo: ["", Validators.required]
+      photo: ["", Validators.required],
+      gender: ["", Validators.required]
     });
   }
 
@@ -43,7 +43,7 @@ export class AddComponent implements OnInit {
       this.studentService.addStudent(this.form.value).subscribe(data => {
         console.log("Estudiante agregado exitosamente!");
         this.studentService.getStudents();
-        this.router.navigateByUrl("/list");
+        this.router.navigateByUrl("/estudiante");
       });
     }
 

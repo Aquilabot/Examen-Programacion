@@ -10,7 +10,7 @@ const routes: Routes = [
   //{ path: '**', pathMatch   : 'full', component: NotFoundComponent},
   { path: 'estudiante', component: ListComponent },
   { path: 'add', component: AddComponent },
-  { path: 'edita', component: EditComponent }
+  { path: 'edit', component: EditComponent }
 ];
 
 @NgModule({

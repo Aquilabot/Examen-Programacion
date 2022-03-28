@@ -87,9 +87,9 @@ public class estudianteController {
         String headerValue = "attachment; filename=users_" + currentDateTime + ".xlsx";
         response.setHeader(headerKey, headerValue);
              
-        ArrayList<estudianteModel> personas = EstudianteService.getStudents();
+        ArrayList<estudianteModel> estudiantes = EstudianteService.getStudents();
              
-        excel excelExport = new excel(personas);
+        excel excelExport = new excel(estudiantes);
              
         excelExport.export(response);
     }

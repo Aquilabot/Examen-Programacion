@@ -6,7 +6,7 @@ import { Student } from "../model/student";
 })
 export class StudentService {
 
-  AUTH_SERVER: string = "http://localhost:8080/";
+  AUTH_SERVER: string = "http://localhost:8080";
   student: Student[] = [];
   constructor(private httpClient: HttpClient) {}
 
@@ -23,10 +23,10 @@ export class StudentService {
   }
 
   updateStudent(student: Student) {
-    return this.httpClient.put<Student>(this.AUTH_SERVER + "/estudiante" + student.studentId, student);
+    return this.httpClient.post<Student>(this.AUTH_SERVER + "/estudiante" + student.id, student);
   }
 
-  deleteStudent(id: String) {
+  deleteStudent(id: number) {
     return this.httpClient.delete(this.AUTH_SERVER + "/estudiante/" + id);
   }
 
