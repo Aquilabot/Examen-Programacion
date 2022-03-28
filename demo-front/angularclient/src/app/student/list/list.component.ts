@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { Student } from '../../model/student';
 import { StudentService } from 'src/app/services/student.service';
+import { Departamento, Provincia, Distrito } from "../../model/ubigeo";
 
 @Component({
   selector: 'app-list',
@@ -19,12 +20,26 @@ export class ListComponent implements OnInit {
   name:string=""
   distrito:string="" //el ubigeo se puede obtener usando el distrito
   students:Student[]=[]
+  public selectedDepartamento: Departamento = { id: 0, name: "Seleccione un departamento" };
+  public selectedProvincia: Provincia = { id: 0, departamentoId: 0, name: "Seleccione una provincia" };
+  public selectedDistrito: Distrito = { id: 0, provinciaId: 0, name: "Seleccione un distrito" };
+  public departamentos: Departamento[] = [];
+  public provincias: Provincia[] = [];
+  public distritos: Distrito[] = [];
 
   constructor(private service:StudentService,private router:Router,private fb: FormBuilder){
   }
 
   ngOnInit(): void {
     this.getStudents();
+    this.departamentos = this.service.getDepartamentos();
+  }
+  onSelectedDepartamento(id:any):void{
+    this.provincias = this.service.getProvincias().filter(provincia => provincia.departamentoId == id.target.value);
+  }
+
+  onSelectedProvincia(id:any):void{
+    this.distritos = this.service.getDistritos().filter(distrito => distrito.provinciaId == id.target.value);
   }
 
   getStudents(){

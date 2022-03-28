@@ -16,6 +16,10 @@
               <div class="container">
                 <div class="row">
                   <div class="col-3">
+                    <label for="documentNumber">Nombres</label>
+                    <input type="text" class="form-control" [(ngModel)]='name'>
+                  </div>
+                  <div class="col-3">
                     <label for="documentNumber">Apellido Paterno</label>
                     <input type="text" class="form-control" [(ngModel)]='lastnameP'>
                   </div>
@@ -23,7 +27,10 @@
                     <label for="documentNumber">Apellido Materno</label>
                     <input type="text" class="form-control" [(ngModel)]='lastnameM'>
                   </div>
-                  <div class="col-4">
+                  <div class="col-2">
+                    <button class="btn btn-primary" type="button" (click)="filtrarName()">Buscar por nombre</button>
+                  </div>
+                  <div class="col-10">
                     Tipo de Documento
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
                       <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off"
@@ -34,17 +41,41 @@
                       <label class="btn btn-outline-primary" for="btnradio2">Carnet de Extranjeria</label>
                     </div>
                   </div>
-                  <div class="col-4">
+                  <div class="col-8">
                     <label for="documentNumber">Numero de Documento</label>
                     <input type="text" class="form-control" [(ngModel)]='documentNumber'>
                   </div>
-                  <div class="col-2">
-                    <button class="btn btn-primary" type="button" (click)="filtrarName()">Buscar por nombre</button>
-                  </div>
-                  <div class="col-2">
+                  <div class="col-6">
                     <button class="btn btn-primary" type="button" (click)="filtrarDoc()">Buscar por documento</button>
                   </div>
-                  <div class="col-2">
+                  <div class="form-group col-12">
+                    <label for="departamento">Departamento</label>
+                    <select [(ngModel)]="selectedDepartamento.id" class="form-select" formControlName="departamento" (change)="onSelectedDepartamento($event)">
+                      <option *ngFor="let departamento of departamentos" [value]="departamento.id">
+                        {{departamento.name}}
+                      </option>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-12">
+                    <label for="provincia">Provincia</label>
+                    <select [(ngModel)]="selectedProvincia.id" class="form-select" formControlName="provincia" (change)="onSelectedProvincia($event)">
+                      <option *ngFor="let provincia of provincias" [value]="provincia.id">
+                        {{provincia.name}}
+                      </option>
+                    </select>
+                  </div>
+
+                  <div class="form-group col-12">
+                    <label for="distrito">Distrito</label>
+                    <select [(ngModel)]="selectedDistrito.id" class="form-select" formControlName="distrito">
+                      <option *ngFor="let distrito of distritos" [value]="distrito.id">
+                        {{distrito.name}}
+                      </option>
+                    </select>
+                  </div>
+
+                  <div class="col-12">
                     <button class="btn btn-primary" type="button" (click)="filtrarUbigeo()">Buscar por ubigeo</button>
                   </div>
                 </div>

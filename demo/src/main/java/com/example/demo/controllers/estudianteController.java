@@ -37,33 +37,33 @@ public class estudianteController {
         return EstudianteService.getStudent(id);
     }
 
-    @GetMapping("/querydocOR")
-    public ArrayList<estudianteModel> getByDocOrDocType(@RequestParam String documentNumber, @RequestParam String documentType){
+    @RequestMapping(path = "/querydocOR/{documentNumber}/{documentType}", method = RequestMethod.GET)
+    public ArrayList<estudianteModel> getByDocOrDocType(@PathVariable String documentNumber, @PathVariable String documentType){
         return EstudianteService.getByDocOrDocType(documentNumber, documentType);
     }
 
-    @GetMapping("/querydocAND")
-    public ArrayList<estudianteModel> getByDocAndDocType(@RequestParam String documentNumber, @RequestParam String documentType){
+    @RequestMapping(path = "/querydocAND/{documentNumber}/{documentType}", method = RequestMethod.GET)
+    public ArrayList<estudianteModel> getByDocAndDocType(@PathVariable String documentNumber, @PathVariable String documentType){
         return EstudianteService.getByDocAndDocType(documentNumber, documentType);
     }
 
-    @GetMapping("/querynameOR")
-    public ArrayList<estudianteModel> getByLastnamePOrLastnameMOrName(@RequestParam String lastnameP, @RequestParam String lastnameM, @RequestParam String name){
+    @RequestMapping(path = "/querynameOR/{lastnameP}/{lastnameM}/{name}", method = RequestMethod.GET)
+    public ArrayList<estudianteModel> getByLastnamePOrLastnameMOrName(@PathVariable String lastnameP, @PathVariable String lastnameM, @PathVariable String name){
         return EstudianteService.getByLastnamePOrLastnameMOrName(lastnameP, lastnameM, name);
     }
 
-    @GetMapping("/querynameAND")
-    public ArrayList<estudianteModel> getByLastnamePAndLastnameMAndName(@RequestParam String lastnameP, @RequestParam String lastnameM, @RequestParam String name){
+    @RequestMapping(path = "/querynameAND/{lastnameP}/{lastnameM}/{name}", method = RequestMethod.GET)
+    public ArrayList<estudianteModel> getByLastnamePAndLastnameMAndName(@PathVariable String lastnameP, @PathVariable String lastnameM, @PathVariable String name){
         return EstudianteService.getByLastnamePAndLastnameMAndName(lastnameP, lastnameM, name);
     }
 
-    @GetMapping("/queryubigeoOR")
-    public ArrayList<estudianteModel> getByDepartamentoOrProvinciaOrDistrito(@RequestParam String departamento, @RequestParam String provincia, @RequestParam String distrito){
+    @RequestMapping(path = "/queryubigeoOR/{departamento}/{provincia}/{distrito}", method = RequestMethod.GET)
+    public ArrayList<estudianteModel> getByDepartamentoOrProvinciaOrDistrito(@PathVariable String departamento, @PathVariable String provincia, @PathVariable String distrito){
         return EstudianteService.getByDepartamentoOrProvinciaOrDistrito(departamento, provincia, distrito);
     }
 
-    @GetMapping("/queryubigeoAND")
-    public ArrayList<estudianteModel> getByDepartamentoAndProvinciaAndDistrito(@RequestParam String departamento, @RequestParam String provincia, @RequestParam String distrito){
+    @RequestMapping(path = "/queryubigeoAND/{departamento}/{provincia}/{distrito}", method = RequestMethod.GET)
+    public ArrayList<estudianteModel> getByDepartamentoAndProvinciaAndDistrito(@PathVariable String departamento, @PathVariable String provincia, @PathVariable String distrito){
         return EstudianteService.getByDepartamentoAndProvinciaAndDistrito(departamento, provincia, distrito);
     }
 
