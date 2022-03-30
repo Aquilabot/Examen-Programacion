@@ -18,6 +18,8 @@ export class ListComponent implements OnInit {
   lastnameP:string=""
   lastnameM:string=""
   name:string=""
+  provincia:string=""
+  departamento:string=""
   distrito:string="" //el ubigeo se puede obtener usando el distrito
   students:Student[]=[]
   public selectedDepartamento: Departamento = { id: 0, name: "Seleccione un departamento" };
@@ -99,7 +101,7 @@ export class ListComponent implements OnInit {
     let student = new Student()
     student.distrito=this.distrito
     console.log(student);
-    this.service.getStudentByUbigeo(undefined, undefined, this.distrito).subscribe(data=>{
+    this.service.getStudentByUbigeo(this.departamento, this.provincia, this.distrito).subscribe(data=>{
       console.log(data)
       this.students=data
     })
