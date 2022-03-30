@@ -99,6 +99,8 @@ export class ListComponent implements OnInit {
 
   filtrarUbigeo(){
     let student = new Student()
+    student.departamento=this.departamento
+    student.provincia=this.provincia
     student.distrito=this.distrito
     console.log(student);
     this.service.getStudentByUbigeo(this.departamento, this.provincia, this.distrito).subscribe(data=>{
