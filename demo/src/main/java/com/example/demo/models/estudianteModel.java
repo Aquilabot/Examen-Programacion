@@ -15,7 +15,7 @@ public class estudianteModel {
     private String lastnameM;
     private String name;
     private String gender;
-    private String birthdate; // (dd/mm/yyyy)
+    private String birthdate; // (dd/mm/yyyy) or toString.dateObj
     private int age;
     private String location;
     private String departamento;
